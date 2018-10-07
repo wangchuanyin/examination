@@ -2,15 +2,19 @@
   <div class="app">
     <AppHeader fixed>
       <SidebarToggler class="d-lg-none" display="md" mobile />
-      <b-link class="navbar-brand" to="#">
-        <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
-        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo">
+      <b-link class="navbar-brand" to="#"> 问卷网
+        <!-- <img class="navbar-brand-full" src="img/brand/logo.svg" width="89" height="25" alt="CoreUI Logo">
+        <img class="navbar-brand-minimized" src="img/brand/sygnet.svg" width="30" height="30" alt="CoreUI Logo"> -->
       </b-link>
       <SidebarToggler class="d-md-down-none" display="lg" />
       <b-navbar-nav class="d-md-down-none">
-        <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
+        <!-- <b-nav-item class="px-3" to="/dashboard">Dashboard</b-nav-item>
         <b-nav-item class="px-3" to="/users" exact>Users</b-nav-item>
-        <b-nav-item class="px-3">Settings</b-nav-item>
+        <b-nav-item class="px-3">Settings</b-nav-item> -->
+
+        <b-nav-item class="px-3" to="/dashboard">编辑调查问卷</b-nav-item>
+        <!-- <b-nav-item class="px-3" to="/users" exact>Users</b-nav-item>
+        <b-nav-item class="px-3">Settings</b-nav-item> -->
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">
@@ -37,7 +41,7 @@
         <SidebarMinimizer/>
       </AppSidebar>
       <main class="main">
-        <Breadcrumb :list="list"/>
+        <Breadcrumb :list="list" style="margin-bottom:0"/>
         <div class="container-fluid">
           <router-view></router-view>
         </div>
@@ -50,12 +54,13 @@
     <TheFooter>
       <!--footer-->
       <div>
-        <a href="https://coreui.io">CoreUI</a>
-        <span class="ml-1">&copy; 2018 creativeLabs.</span>
+        <!-- <a href="https://coreui.io">CoreUI</a>
+        <span class="ml-1">&copy; 2018 creativeLabs.</span> -->
+        作者: 王传银 创建时间: 2018
       </div>
       <div class="ml-auto">
-        <span class="mr-1">Powered by</span>
-        <a href="https://coreui.io">CoreUI for Vue</a>
+        <!-- <span class="mr-1">Powered by Charlie and win10</span>
+        <a href="https://coreui.io">CoreUI for Vue</a> -->
       </div>
     </TheFooter>
   </div>
@@ -100,3 +105,6 @@ export default {
   }
 }
 </script>
+<style>
+
+</style>

@@ -8,7 +8,9 @@ import Vue from 'vue'
 import BootstrapVue from 'bootstrap-vue'
 import App from './App'
 import router from './router'
-
+import store from './store/index'
+import _ from "lodash";
+Object.defineProperty(Vue.prototype, '_.', { value: _ });
 // todo
 // cssVars()
 
@@ -18,6 +20,7 @@ Vue.use(BootstrapVue)
 new Vue({
   el: '#app',
   router,
+  store,
   template: '<App/>',
   components: {
     App

@@ -4,7 +4,7 @@
          <dl class="type_module">
         <dt>选择题</dt>
             <dd>
-                <label class="type_item three_letter_spacing"> <span class="fa fa-dot-circle-o"></span>单选题</label>
+                <a @click="addSingleQuestion"><label class="type_item three_letter_spacing"> <span class="fa fa-dot-circle-o"></span>单选题</label></a>
                 <label class="type_item three_letter_spacing"> <span class="fa fa-check-square"></span>多选题</label>
                 <label class="type_item three_letter_spacing"> <span class="fa fa-briefcase"></span>文字投票</label>
                 <label class="type_item three_letter_spacing"> <span class="fa fa-file-image-o"></span>图片选择</label>
@@ -16,6 +16,7 @@
 </template>
 
 <script>
+//import { mapActions } from 'vuex'
 export default {
 name:'qustionLeftNav',
  data () {
@@ -28,7 +29,18 @@ name:'qustionLeftNav',
  computed: {},
 
 
- methods: {}
+ methods: {
+     //...mapActions(['addQuestion'])
+     addSingleQuestion(){
+         let singleQuestion = {
+             id:0,
+             subject:'单选题',
+             options:[{optionId:0,optionItem:'选项1'},{optionId:1,optionItem:'选项2'}]
+         }
+
+         this.$store.dispatch('addQuestion',singleQuestion);
+     }
+ }
 }
 
 </script>

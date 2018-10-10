@@ -1,23 +1,47 @@
 <template>
- <div></div>
+    <div >
+    
+        <div class="">
+             {{order}}
+           
+        </div>
+    </div>
+        
 </template>
 
 <script>
-export default {
-name:'SingleQue',
- data () {
- return {
- };
- },
-
- components: {},
-
- computed: {},
-
-
- methods: {}
-}
-
+    export default {
+    
+        name: 'SingleQue',
+        props:['order'],
+        data() {
+    
+            return {};
+    
+        },
+    
+    
+    
+        components: {},
+    
+    
+    
+        computed: {},
+    
+    
+    
+    
+    
+        methods: {}
+    
+    }
 </script>
-<style  scoped>
+<style scoped>
+    .single_q {
+    
+        border-radius: 4px;
+    
+        background-color: #ffffff
+    
+    }
 </style>

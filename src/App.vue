@@ -22,10 +22,11 @@ export default {
   @import '~bootstrap-vue/dist/bootstrap-vue.css';
   // Import Main styles for this application
   @import 'assets/scss/style';
+ 
 </style>
+
 <style>
-.main .container-fluid {
-    padding: 0 0px;
-}
+ 
+@import 'styles/edit.css'
 </style>
 

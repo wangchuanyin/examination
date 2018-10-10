@@ -10,15 +10,14 @@
                <div class="row q_right_row">
                   <div class="col-md-9 ">
                    <div class="q_title">
-                      <input class="form-control" id="title" type="text" placeholder="问卷标题">
-                      <input class="form-control survey_prefix" id="title_prefix" type="text" placeholder="点击编辑欢迎语">
+                      <div class="" id="title"   contenteditable="true" placeholder="问卷标题"/>
+                      <div  class="" id="title_prefix"  contenteditable="true" placeholder="点击编辑欢迎语"/>
                    </div>
                    <div>
-                     <ul>
-                      <li v-for="(q, key, index) in questions" :key="index">
-                          
-                      </li>
-                    </ul>
+                      <div v-for="(q, key, index) in questions" :key="index">
+                         <single-q v-bind:order ="key"/>
+                      </div>
+                   
                    </div>
                   </div>
                   <div class="col-md-3">
@@ -34,6 +33,7 @@
 <script>
 import qustionLeftNav from './questionLeftNav'
 import { mapGetters } from 'vuex'
+import singleQ from './singleQues'
 export default {
 name:'Question',
  data () {
@@ -42,7 +42,7 @@ name:'Question',
  };
  },
 
- components: {qustionLeftNav},
+ components: {qustionLeftNav,singleQ},
 
  computed: {
    ...mapGetters({
@@ -57,6 +57,13 @@ name:'Question',
 
 </script>
 <style  scoped>
+div:empty:before{
+content: attr(placeholder);
+color:#bbb;
+}
+div:focus:before{
+content:none;
+}
 .q_main{
   margin:0;
 }

@@ -1,5 +1,5 @@
 <template>
- <div class="question_type_wrap">
+ <div class="question_type_wrap_">
    <div class="question_type_dl">
          <dl class="type_module">
         <dt>选择题</dt>
@@ -45,18 +45,18 @@ name:'qustionLeftNav',
 
 </script>
 <style  scoped>
-.question_type_wrap {
+.question_type_wrap_ {
     overflow: hidden;
     width: 223px;
     height: 435px;
     background-color: #fafafa;
     border-right: 1px solid #dde5ed;
 }
-.question_type_wrap .question_type_dl .type_module{
+.question_type_wrap_ .question_type_dl .type_module{
         padding-left: 12px;
         padding-top:10px;
 }
-.question_type_wrap .question_type_dl .type_module>dd .type_item{
+.question_type_wrap_ .question_type_dl .type_module>dd .type_item{
     display: inline-block;
     width: 96px;
     height: 30px;
@@ -74,7 +74,7 @@ name:'qustionLeftNav',
 .three_letter_spacing {
     letter-spacing: 4px;
 } 
-.question_type_wrap .question_type_dl .type_module>dd .type_item:hover{
+.question_type_wrap_ .question_type_dl .type_module>dd .type_item:hover{
  color: #20a8d8;
  border:1px solid #20a8d8;
 }  

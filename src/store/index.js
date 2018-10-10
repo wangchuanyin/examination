@@ -17,15 +17,21 @@ const store = new Vuex.Store({
     addQuestion(state,question){
         state.questions.push(question);
       },
-      removeQuestion(state,current_question){
+    removeQuestion(state,current_question){
         this._.remove(state.qestions,function(question){
             return current_question.id = question.id
         })
-      }
+    },
+    updateQuestions(state,list){
+      state.questions = list;
+    }
   },
   actions:{
     addQuestion({commit},question){
         commit('addQuestion',question);
+    },
+    updateQuestions({commit},list){
+      commit('updateQuestions',list);
     }
   }
   

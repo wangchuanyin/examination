@@ -21,6 +21,7 @@ export default {
 name:'qustionLeftNav',
  data () {
  return {
+     order:0
  };
  },
 
@@ -31,9 +32,10 @@ name:'qustionLeftNav',
 
  methods: {
      //...mapActions(['addQuestion'])
+       
      addSingleQuestion(){
          let singleQuestion = {
-             id:0,
+             id:this.order++,
              subject:'单选题',
              options:[{optionId:0,optionItem:'选项1'},{optionId:1,optionItem:'选项2'}]
          }

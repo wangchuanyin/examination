@@ -14,9 +14,12 @@
                       <div  class="" id="title_prefix"  contenteditable="true" placeholder="点击编辑欢迎语"/>
                    </div>
                    <div>
-                      <div v-for="(q, key, index) in questions" :key="index">
-                         <single-q v-bind:order ="key"/>
-                      </div>
+                     <draggable   v-model="questions" :options="{group:'single_q'}" @start="dragging=true" @end="dragging=false">
+                        <div v-for="(q, key, index) in questions" :key="index">
+                          <single-q v-bind:order ="q.id"/>
+                        </div>
+                     </draggable>
+                      
                    
                    </div>
                   </div>
@@ -31,6 +34,7 @@
 </template>
 
 <script>
+import draggable from 'vuedraggable'
 import qustionLeftNav from './questionLeftNav'
 import { mapGetters } from 'vuex'
 import singleQ from './singleQues'
@@ -42,13 +46,22 @@ name:'Question',
  };
  },
 
- components: {qustionLeftNav,singleQ},
+ components: {qustionLeftNav,singleQ,draggable},
 
  computed: {
-   ...mapGetters({
-  // 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`
-      questions: 'questions'
-   })
+
+   questions:{
+     get:function(){
+       return this.$store.state.questions;
+     },
+     set:function(val){
+      this.$store.dispatch('updateQuestions',val)
+     }
+   }
+  //  ...mapGetters({
+  // // 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`
+  //     questions: 'questions'
+  //  })
  },
 
 

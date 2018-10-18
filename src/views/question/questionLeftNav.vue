@@ -37,7 +37,7 @@ name:'qustionLeftNav',
          let singleQuestion = {
              id:this.order++,
              subject:'单选题',
-             options:[{optionId:0,optionItem:'选项1'},{optionId:1,optionItem:'选项2'}]
+             options:[{itemId:0,itemName:'选项1'},{itemId:1,itemName:'选项2'}]
          }
 
          this.$store.dispatch('addQuestion',singleQuestion);

@@ -13,7 +13,7 @@
                       <div class="" id="title"   contenteditable="true" placeholder="问卷标题"/>
                       <div  class="" id="title_prefix"  contenteditable="true" placeholder="点击编辑欢迎语"/>
                    </div>
-                   <div>
+                   <div >
                      <draggable   v-model="questions" :options="{group:'single_q'}" @start="dragging=true" @end="dragging=false">
                         <div v-for="(q, key, index) in questions" :key="index">
                           <single-q v-bind:order ="q.id"/>
@@ -107,4 +107,5 @@ content:none;
  .survey_prefix{
        margin: 6px 0 0;
  }
+
 </style>

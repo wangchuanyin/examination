@@ -5,7 +5,7 @@
         <dt>选择题</dt>
             <dd>
                 <a @click="addSingleQuestion"><label class="type_item three_letter_spacing"> <span class="fa fa-dot-circle-o"></span>单选题</label></a>
-                <label class="type_item three_letter_spacing"> <span class="fa fa-check-square"></span>多选题</label>
+                 <a @click="addMultiQuestion"><label class="type_item three_letter_spacing"> <span class="fa fa-check-square"></span>多选题</label></a>
                 <label class="type_item three_letter_spacing"> <span class="fa fa-briefcase"></span>文字投票</label>
                 <label class="type_item three_letter_spacing"> <span class="fa fa-file-image-o"></span>图片选择</label>
             </dd>
@@ -34,13 +34,16 @@ name:'qustionLeftNav',
      //...mapActions(['addQuestion'])
        
      addSingleQuestion(){
-         let singleQuestion = {
-             id:this.order++,
-             subject:'单选题',
-             options:[{itemId:0,itemName:'选项1'},{itemId:1,itemName:'选项2'}]
-         }
+           
+         let q =  this.$store.state.singleQuestionModel;
+        
+         this.$store.dispatch('addQuestion',q);
+     },
 
-         this.$store.dispatch('addQuestion',singleQuestion);
+     addMultiQuestion(){
+         let q =  this.$store.state.multiQuestionModel;
+       
+         this.$store.dispatch('addQuestion',q);
      }
  }
 }
@@ -50,7 +53,7 @@ name:'qustionLeftNav',
 .question_type_wrap_ {
     overflow: hidden;
     width: 223px;
-    height: 435px;
+    height: 1500px;
     background-color: #fafafa;
     border-right: 1px solid #dde5ed;
 }

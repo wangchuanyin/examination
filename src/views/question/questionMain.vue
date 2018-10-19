@@ -2,10 +2,10 @@
  <div class="animated fadeIn">
    <div class="container-fluid">
      <div class="row q_main">
-       <div class="col-md-3 q_left" >
+       <div class="col-md-2 q_left" >
          <qustion-left-nav/>
        </div>
-       <div class="col-md-9 q_right" >
+       <div class="col-md-10 q_right" >
           <div class="container-fluid">
                <div class="row q_right_row">
                   <div class="col-md-9 ">
@@ -16,7 +16,9 @@
                    <div >
                      <draggable   v-model="questions" :options="{group:'single_q'}" @start="dragging=true" @end="dragging=false">
                         <div v-for="(q, key, index) in questions" :key="index">
-                          <single-q v-bind:order ="q.id"/>
+                    
+                          <single-q v-if="q.type==='S'" v-bind:order ="key"></single-q>
+                          <multi-q  v-else-if="q.type==='M'"  v-bind:order ="key"></multi-q>
                         </div>
                      </draggable>
                       
@@ -38,6 +40,7 @@ import draggable from 'vuedraggable'
 import qustionLeftNav from './questionLeftNav'
 import { mapGetters } from 'vuex'
 import singleQ from './singleQues'
+import multiQ from './multiQues'
 export default {
 name:'Question',
  data () {
@@ -46,7 +49,7 @@ name:'Question',
  };
  },
 
- components: {qustionLeftNav,singleQ,draggable},
+ components: {qustionLeftNav,singleQ,draggable,multiQ},
 
  computed: {
 
@@ -87,7 +90,7 @@ content:none;
 }
 .q_right{
   max-width:100%;
- 
+  margin-left: 24px;
 }
 
 .q_right .q_title{

@@ -2,10 +2,10 @@
  <div class="animated fadeIn">
    <div class="container-fluid">
      <div class="row q_main">
-       <div class="col-md-2 q_left" >
+       <div class="col-md-3 q_left" >
          <qustion-left-nav/>
        </div>
-       <div class="col-md-10 q_right" >
+       <div class="col-md-9 q_right" >
           <div class="container-fluid">
                <div class="row q_right_row">
                   <div class="col-md-9 ">
@@ -19,6 +19,7 @@
                     
                           <single-q v-if="q.type==='S'" v-bind:order ="key"></single-q>
                           <multi-q  v-else-if="q.type==='M'"  v-bind:order ="key"></multi-q>
+                          <pic-q v-else-if="q.type==='P'"  v-bind:order ="key"></pic-q>
                         </div>
                      </draggable>
                       
@@ -41,6 +42,7 @@ import qustionLeftNav from './questionLeftNav'
 import { mapGetters } from 'vuex'
 import singleQ from './singleQues'
 import multiQ from './multiQues'
+import picQ from './picQues'
 export default {
 name:'Question',
  data () {
@@ -49,7 +51,7 @@ name:'Question',
  };
  },
 
- components: {qustionLeftNav,singleQ,draggable,multiQ},
+ components: {qustionLeftNav,singleQ,multiQ,picQ,draggable},
 
  computed: {
 
@@ -90,7 +92,7 @@ content:none;
 }
 .q_right{
   max-width:100%;
-  margin-left: 24px;
+  padding-left: 20px
 }
 
 .q_right .q_title{

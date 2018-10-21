@@ -6,6 +6,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     // 定义状态
     state: {
+        survey_title:null,
+        survey_prefix:null,
         singleQuestionModel: {
             id: null,
             type: 'S',
@@ -18,6 +20,12 @@ const store = new Vuex.Store({
             subject: '多选题',
             options: [{ itemId: 0, itemName: '选项1' }, { itemId: 1, itemName: '选项2' }]
         },
+        picQuestionModel:{
+            id:null,
+            type:'P',
+            subject:'图片选择',
+            options:[]
+        },
         questions: []
     },
     getters: {
@@ -26,6 +34,12 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
+        updateSurveyTitel(state,title){
+            state.survey_title = title;
+        },
+        updateSurveyPrefix(state,prefix){
+            state.survey_title = prefix;
+        },
         addQuestion(state, question) {
             state.questions.push(question);
         },
@@ -39,6 +53,12 @@ const store = new Vuex.Store({
         }
     },
     actions: {
+        updateSurveyTitel({commit},title){
+            commit('updateSurveyTitel',title);
+        },
+        updateSurveyPrefix({commit},prefix){
+            commit('updateSurveyPrefix',prefix);
+        },
         addQuestion({ commit }, question) {
             commit('addQuestion', question);
         },

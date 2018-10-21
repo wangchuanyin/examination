@@ -5,9 +5,9 @@
         <dt>选择题</dt>
             <dd>
                 <a @click="addSingleQuestion"><label class="type_item three_letter_spacing"> <span class="fa fa-dot-circle-o"></span>单选题</label></a>
-                 <a @click="addMultiQuestion"><label class="type_item three_letter_spacing"> <span class="fa fa-check-square"></span>多选题</label></a>
-                <label class="type_item three_letter_spacing"> <span class="fa fa-briefcase"></span>文字投票</label>
-                <label class="type_item three_letter_spacing"> <span class="fa fa-file-image-o"></span>图片选择</label>
+                <a @click="addMultiQuestion"><label class="type_item three_letter_spacing"> <span class="fa fa-check-square"></span>多选题</label></a>
+                <a @click="addPicQuestion"> <label class="type_item three_letter_spacing"> <span class="fa fa-file-image-o"></span>图片选择</label></a>
+                <a> <label class="type_item three_letter_spacing"> <span class="fa fa-briefcase"></span>文字投票</label></a>
             </dd>
         </dl> 
         
@@ -43,6 +43,10 @@ name:'qustionLeftNav',
      addMultiQuestion(){
          let q =  this.$store.state.multiQuestionModel;
        
+         this.$store.dispatch('addQuestion',q);
+     },
+     addPicQuestion(){
+         let q = this.$store.state.picQuestionModel;
          this.$store.dispatch('addQuestion',q);
      }
  }

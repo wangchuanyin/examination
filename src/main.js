@@ -15,7 +15,31 @@ Object.defineProperty(Vue.prototype, '_.', { value: _ });
 // cssVars()
 
 Vue.use(BootstrapVue)
-
+// Content editable component
+// Vue.component('editable', {
+//     template: `<div contenteditable="true" @input="$emit('update:content', $event.target.innerText)"></div>`,
+//     props: ['content'],
+//     mounted: function () {
+//         this.$el.innerText = this.content;
+//     },
+//     watch: {
+//         content: function () {
+//             this.$el.innerText = this.content;
+//         }
+//     }
+// });
+Vue.component('editable',{
+  template:'<div contenteditable="true" @input="update"></div>',
+  props:['content'],
+  mounted:function(){
+    this.$el.innerText = this.content;
+  },
+  methods:{
+    update:function(event){
+      this.$emit('update',event.target.innerText);
+    }
+  }
+})
 /* eslint-disable no-new */
 new Vue({
   el: '#app',

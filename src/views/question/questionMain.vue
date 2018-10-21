@@ -10,8 +10,9 @@
                <div class="row q_right_row">
                   <div class="col-md-9 ">
                    <div class="q_title">
-                      <div class="" id="title"   contenteditable="true" placeholder="问卷标题"/>
-                      <div  class="" id="title_prefix"  contenteditable="true" placeholder="点击编辑欢迎语"/>
+                     <editable :content.sync="surveyTitle" @update="updateSurveyTitle"></editable>
+                      <editable :content.sync="surveyPrefix" @update="updateSurveyPrefix" ></editable>
+                     
                    </div>
                    <div >
                      <draggable   v-model="questions" :options="{group:'single_q'}" @start="dragging=true" @end="dragging=false">
@@ -40,6 +41,7 @@
 import draggable from 'vuedraggable'
 import qustionLeftNav from './questionLeftNav'
 import { mapGetters } from 'vuex'
+import {mapState} from 'vuex'
 import singleQ from './singleQues'
 import multiQ from './multiQues'
 import picQ from './picQues'
@@ -54,7 +56,10 @@ name:'Question',
  components: {qustionLeftNav,singleQ,multiQ,picQ,draggable},
 
  computed: {
-
+   ...mapState({
+     surveyTitle:state=>state.survey_title,
+     surveyPrefix:state=>state.survey_prefix
+   }),
    questions:{
      get:function(){
        return this.$store.state.questions;
@@ -63,14 +68,19 @@ name:'Question',
       this.$store.dispatch('updateQuestions',val)
      }
    }
-  //  ...mapGetters({
-  // // 把 `this.doneCount` 映射为 `this.$store.getters.doneTodosCount`
-  //     questions: 'questions'
-  //  })
+
  },
 
 
- methods: {}
+ methods: {
+   updateSurveyTitle(content){
+     this.$store.commit('updateSurveyTitle',content);
+   },
+   updateSurveyPrefix(content){
+     this.$store.commit('updateSurveyPrefix',content);
+   }
+
+ }
 }
 
 </script>
@@ -83,11 +93,10 @@ div:focus:before{
 content:none;
 }
 .q_main{
-  margin:0;
+  margin-left: -70px;
 }
 .q_left{
- padding-left: 0px;
- margin-right: -58px;
+ margin-right: -60px;
  
 }
 .q_right{

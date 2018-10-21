@@ -55,9 +55,9 @@ const Login = () => import('@/views/pages/Login')
 const Register = () => import('@/views/pages/Register')
 
 // Users
-const Users = () => import('@/views/users/Users')
-const User = () => import('@/views/users/User')
+
 const QuestionMain = () =>import('@/views/question/questionMain')
+const preDisplay = ()=>import('@/views/question/preDisplay')
 Vue.use(Router)
 
 export default new Router({
@@ -76,6 +76,11 @@ export default new Router({
           name: '题型',
           component: QuestionMain
         }]
+    },
+    {
+      path:'/preDisplay',
+      name:'预览',
+      component:preDisplay
     },
     {
       path: '/pages',

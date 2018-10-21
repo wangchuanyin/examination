@@ -13,8 +13,8 @@
         <b-nav-item class="px-3">Settings</b-nav-item> -->
 
         <b-nav-item class="px-3" to="/dashboard">编辑调查问卷</b-nav-item>
-        <!-- <b-nav-item class="px-3" to="/users" exact>Users</b-nav-item>
-        <b-nav-item class="px-3">Settings</b-nav-item> -->
+        <b-nav-item class="px-3" to="/preDisplay" target="_blank" >预览</b-nav-item>
+        
       </b-navbar-nav>
       <b-navbar-nav class="ml-auto">
         <b-nav-item class="d-md-down-none">

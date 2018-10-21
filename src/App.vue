@@ -26,7 +26,11 @@ export default {
 </style>
 
 <style>
- 
-@import 'styles/edit.css'
+ div[contenteditable] {
+  border: 1px dashed #ccc;
+  padding: 5px;
+  margin-bottom: 10px;
+}
+
 </style>
 

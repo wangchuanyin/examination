@@ -101,7 +101,7 @@ content:none;
 }
 .q_right{
   max-width:100%;
-  padding-left: 30px
+  padding-left: 60px
 }
 
 .q_right .q_title{

@@ -26,10 +26,16 @@ name:'preDisplay',
  components: {},
 
  computed: {
-     ...mapState({
-         suerveyTitle:state =>state.survey_title,
-         suerveyPrefix:state =>state.survey_prefix
-     })
+    //  ...mapState({
+    //      suerveyTitle:state =>state.survey_title,
+    //      suerveyPrefix:state =>state.survey_prefix
+	//  })
+	suerveyTitle(){
+		return window.localStorage.getItem('survey_title');
+	},
+	suerveyPrefix(){
+		return window.localStorage.getItem('survey_prefix');
+	}
  },
 
 

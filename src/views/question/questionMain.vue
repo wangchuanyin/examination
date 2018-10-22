@@ -2,10 +2,10 @@
  <div class="animated fadeIn">
    <div class="container-fluid">
      <div class="row q_main">
-       <div class="col-md-3 q_left" >
+       <div class="col-md-2 q_left" >
          <qustion-left-nav/>
        </div>
-       <div class="col-md-9 q_right" >
+       <div class="col-md-10 q_right" >
           <div class="container-fluid">
                <div class="row q_right_row">
                   <div class="col-md-9 ">
@@ -101,7 +101,7 @@ content:none;
 }
 .q_right{
   max-width:100%;
-  padding-left: 20px
+  padding-left: 30px
 }
 
 .q_right .q_title{

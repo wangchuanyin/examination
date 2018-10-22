@@ -6,8 +6,8 @@ Vue.use(Vuex)
 const store = new Vuex.Store({
     // 定义状态
     state: {
-        survey_title:'问卷标题',
-        survey_prefix:'点击编辑欢迎语',
+        survey_title: '问卷标题',
+        survey_prefix: '点击编辑欢迎语',
         singleQuestionModel: {
             id: null,
             type: 'S',
@@ -20,11 +20,11 @@ const store = new Vuex.Store({
             subject: '多选题',
             options: [{ itemId: 0, itemName: '选项1' }, { itemId: 1, itemName: '选项2' }]
         },
-        picQuestionModel:{
-            id:null,
-            type:'P',
-            subject:'图片选择',
-            options:[]
+        picQuestionModel: {
+            id: null,
+            type: 'P',
+            subject: '图片选择',
+            options: []
         },
         questions: []
     },
@@ -34,14 +34,13 @@ const store = new Vuex.Store({
         }
     },
     mutations: {
-        updateSurveyTitle(state,title){
-           
+        updateSurveyTitle(state, title) {
             state.survey_title = title;
-            
+            window.localStorage.setItem('survey_title', state.survey_title);
         },
-        updateSurveyPrefix(state,prefix){
-            state.survey_title = prefix;
-
+        updateSurveyPrefix(state, prefix) {
+            state.survey_prefix = prefix;
+            window.localStorage.setItem('survey_prefix', state.survey_prefix);
         },
         addQuestion(state, question) {
             state.questions.push(question);
@@ -56,12 +55,12 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        updateSurveyTitle({commit},title){
-            alert(title)
-            commit('updateSurveyTitle',title);
+        updateSurveyTitle({ commit }, title) {
+
+            commit('updateSurveyTitle', title);
         },
-        updateSurveyPrefix({commit},prefix){
-            commit('updateSurveyPrefix',prefix);
+        updateSurveyPrefix({ commit }, prefix) {
+            commit('updateSurveyPrefix', prefix);
         },
         addQuestion({ commit }, question) {
             commit('addQuestion', question);

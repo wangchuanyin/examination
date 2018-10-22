@@ -55,13 +55,7 @@ const store = new Vuex.Store({
         }
     },
     actions: {
-        updateSurveyTitle({ commit }, title) {
 
-            commit('updateSurveyTitle', title);
-        },
-        updateSurveyPrefix({ commit }, prefix) {
-            commit('updateSurveyPrefix', prefix);
-        },
         addQuestion({ commit }, question) {
             commit('addQuestion', question);
         },
